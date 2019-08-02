@@ -19,17 +19,21 @@ public class DatabaseConnection {
 			throw e;
 		}
 	}
-	public void readDatabases() throws Exception {
+	public ResultSet readDatabases() throws Exception {
+		String result="";
 		try {
+		
 			statement=connect.createStatement();
 			resultset=statement.executeQuery("select * from timelog.tickets");
-			while(resultset.next()) {
+			/*while(resultset.next()) {
 				int id=resultset.getInt("TicketID");
 				String ticketno=resultset.getString("TicketNo");
 				String ticketdesc=resultset.getString("TicketDescription");
 				String ticketstatus=resultset.getString("TicketStatus");
 				System.out.println(String.format(
 						"%d %5s %5s %5s", id, ticketno,ticketdesc,ticketstatus));
+				result+=id+" "+ticketno+" "+ticketdesc+" "+ticketstatus+"\n";
+			
 			}
 			if(resultset!=null) {
 				resultset.close();
@@ -39,7 +43,8 @@ public class DatabaseConnection {
 			}
 			if(connect!=null) {
 				connect.close();
-			}
+			}*/
+			return resultset;
 		}catch(Exception e) {
 			throw e;
 		}
