@@ -1,0 +1,54 @@
+CREATE DATABASE `timelog`;
+
+CREATE TABLE `timelog`.`tickets` (
+  `TicketID` INT NOT NULL AUTO_INCREMENT,
+  `TicketNo` VARCHAR(40) NULL,
+  `TicketDescription` VARCHAR(200) NULL,
+  `TicketStatus` VARCHAR(50) NULL,
+  PRIMARY KEY (`TicketID`));
+  
+ CREATE TABLE `timelog`.`users` (
+  `userId` INT NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(45) NULL,
+  PRIMARY KEY (`userId`));
+
+CREATE TABLE `timelog`.`usertickets` (
+  `UserId` INT NULL,
+  `TicketeId` INT NULL,
+  `TimeStart` DATETIME NULL,
+  `TimeEnd` DATETIME NULL,
+  INDEX `UserId_idx` (`UserId` ASC),
+  INDEX `TicketId_idx` (`TicketeId` ASC),
+  CONSTRAINT `UserId`
+    FOREIGN KEY (`UserId`)
+    REFERENCES `timelog`.`users` (`userId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `TicketId`
+    FOREIGN KEY (`TicketeId`)
+    REFERENCES `timelog`.`tickets` (`TicketID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);  
+	
+
+INSERT INTO `timelog`.`tickets`
+(`TicketNo`,
+`TicketDescription`,
+`TicketStatus`)
+VALUES
+("SIMON-1000",
+"test 1",
+"open");
+
+INSERT INTO `timelog`.`users`
+(`userName`)
+VALUES
+("user 1");
+
+INSERT INTO `timelog`.`usertickets`
+(`UserId`,
+`TicketeId`,
+`TimeStart`,
+`TimeEnd`)
+VALUES
+("1","1","2019-01-05","2019-01-06");
