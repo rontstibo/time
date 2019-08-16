@@ -30,13 +30,16 @@
       </li>
     </ul>
   </div>
+  <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-text"><div id="currentUser"></div></li>
+    </ul>
 </nav>
 <div id="app"></div>
 	<script type="text/babel">
 	class Header extends React.Component{
 		
 		render(){
-			return(<div fixed="top" >Test </div>);
+			return(<div fixed="top" > </div>);
 		}
 	}
      ReactDOM.render(
