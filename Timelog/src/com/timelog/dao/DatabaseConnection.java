@@ -28,4 +28,14 @@ public class DatabaseConnection {
 			throw e;
 		}
 	}
+	public int insertNewTickets(String ticketNo,String ticketDesc) throws Exception{
+		try {		
+			statement=connect.createStatement();
+			int ticketID=statement.executeUpdate("INSERT INTO tickets(`TicketNo`,`TicketDescription`,`TicketStatus`) VALUES ('"+ticketNo+"','"+ticketDesc+"' , 'open')");
+			System.out.println("ticketID :"+ticketID);
+			return ticketID;
+		}catch(Exception e) {
+			throw e;
+		}
+	}
 }

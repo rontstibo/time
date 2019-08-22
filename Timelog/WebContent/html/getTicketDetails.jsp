@@ -27,23 +27,7 @@
 	</div>
 	</div>
 </div>	
-<div class="col-sm-6">	
-<div id="createTickets" calss="form-group">
-<button type="button" class="btn btn-text"><h1>Create Ticket</h1></button>
-<form class="form-inline">
-	<div class="form-group ">
-        <input type="text" class="form-control col-sm-10" id="TicketNo" placeholder="Ticket number" name="TicketNo">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control col-sm-12" id="TicketDesc" placeholder="Ticket description" name="TicketDesc">
-    </div>
-	<div class="form-group">     
-		<div class="col-sm-offset-2 col-sm-10">   
-	        <button type="submit" class="btn btn-primary">Submit</button>
-	    </div>
-     </div>
- </form>   
-</div>
+<div id="createTicketContainer" class="col-sm-6">	
 </div>
 </div>
 </div>

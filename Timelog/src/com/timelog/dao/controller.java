@@ -7,17 +7,23 @@ import org.json.simple.*;
 import org.json.simple.parser.*;
 
 import javax.json.Json;
-import javax.ws.rs.GET; 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path; 
 import javax.ws.rs.Produces; 
 import javax.ws.rs.core.MediaType;  
 @Path("/Timelog") 
 public class controller {
+	public DatabaseConnection db;
+	public controller() {
+		db= new DatabaseConnection();
+	}
 	@GET 
    	@Path("/alltickets") 
 	@Produces(MediaType.APPLICATION_JSON) 
 	public List GetAllTicketDetails() throws Exception{
-		DatabaseConnection db= new DatabaseConnection();
 		db.connectToDatabase();
 		ResultSet result=db.readDatabases();
 		return GetTicketDetailsJSON(result);
@@ -43,6 +49,7 @@ public class controller {
 		}
 		return al;
 	}
+	
 	@GET 
    	@Path("/getCurrentUser") 
 	@Produces(MediaType.APPLICATION_JSON) 
@@ -51,6 +58,17 @@ public class controller {
 		userName.put("name",System.getProperty("user.name"));
 		return userName;
 	}
+	
+	@POST
+	@Path("/insertNewTicket")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void insertNewTicket(@FormParam("currentUser") String user,@FormParam("TicketNo") String ticketNo,@FormParam("TicketDesc") String TicketDesc) throws Exception {
+		System.out.println("user:"+user+" no:"+ticketNo+" TicketDesc:"+TicketDesc);
+		db.connectToDatabase();
+		db.insertNewTickets(ticketNo, TicketDesc);
+	}
+	
 }
 
 
