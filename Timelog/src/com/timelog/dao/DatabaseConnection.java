@@ -14,7 +14,7 @@ public class DatabaseConnection {
 	public void connectToDatabase() throws Exception{
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/timelog?user=root&password=localroot");
+			connect=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/timelog?user=localroot&password=localroot");
 		}catch(Exception e) {
 			throw e;
 		}
