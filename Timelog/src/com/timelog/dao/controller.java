@@ -12,7 +12,8 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path; 
-import javax.ws.rs.Produces; 
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;  
 @Path("/Timelog") 
 public class controller {
@@ -67,6 +68,20 @@ public class controller {
 		System.out.println("user:"+user+" no:"+ticketNo+" TicketDesc:"+TicketDesc);
 		db.connectToDatabase();
 		db.insertNewTickets(ticketNo, TicketDesc);
+	}
+	
+	@POST
+	@Path("/login")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Boolean loginCheck(@FormParam("username")String username,@FormParam("password")String password) throws Exception {
+		System.out.println("username:"+username+" password:"+password);
+		db.connectToDatabase();
+		ResultSet result=db.getuserpassword(username, password);
+		Boolean validUser=false;
+		while(result.next()) {
+			validUser=true;
+		}
+		return validUser;
 	}
 	
 }

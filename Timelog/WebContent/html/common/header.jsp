@@ -31,7 +31,10 @@
     </ul>
   </div>
   <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-text"><div id="currentUser"></div></li>
+      <li class="nav-item active"><a class="nav-link" href="#"><div id="currentUser"></div></a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
     </ul>
 </nav>
 <div id="app"></div>

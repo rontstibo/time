@@ -23,3 +23,18 @@
   background-color: #4CAF50;
   color: white;
 }
+.Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  
+  #loginform{
+  	margin: 50px 280px auto;
+  }
+  #ticketExists{
+  	color:red;
+  }

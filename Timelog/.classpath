@@ -39,6 +39,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.osgi.core-4.2.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/osgi-resource-locator-1.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-2.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/yasson-1.0.3.jar"/>
+	<classpathentry kind="lib" path="yasson-1.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

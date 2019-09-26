@@ -28,13 +28,34 @@ public class DatabaseConnection {
 			throw e;
 		}
 	}
-	public int insertNewTickets(String ticketNo,String ticketDesc) throws Exception{
+	public void insertNewTickets(String ticketNo,String ticketDesc) throws Exception{
 		try {		
 			statement=connect.createStatement();
-			int ticketID=statement.executeUpdate("INSERT INTO tickets(`TicketNo`,`TicketDescription`,`TicketStatus`) VALUES ('"+ticketNo+"','"+ticketDesc+"' , 'open')");
-			System.out.println("ticketID :"+ticketID);
-			return ticketID;
+			int result=statement.executeUpdate("INSERT INTO tickets(`TicketNo`,`TicketDescription`,`TicketStatus`) VALUES ('"+ticketNo+"','"+ticketDesc+"' , 'open')");			
 		}catch(Exception e) {
+			throw e;
+		}
+	}
+//	public int insertUsersTicketsTable(String ticketNo)throws Exception{
+//		try {
+//			statement=connect.createStatement();
+//			ResultSet result=statement.executeQuery("select TicketID from tickets where TicketNo='"+ticketNo+"';");
+//			while(result.next()) {
+//				int ticketID=result.getInt("TicketID");
+//				System.out.println("ticketID = "+ticketID);
+//			}
+//		}catch(Exception e) {
+//			throw e;
+//		}
+//	}
+	public ResultSet getuserpassword(String username,String password) throws Exception{
+		try {
+			statement=connect.createStatement();
+			ResultSet result=statement.executeQuery("select * from timelog.users where userName='"+username+"' and password='"+password+"';");
+			System.out.println("result: "+result);
+			return result;
+		}catch(Exception e) {
+			System.out.println("error :"+e);
 			throw e;
 		}
 	}
