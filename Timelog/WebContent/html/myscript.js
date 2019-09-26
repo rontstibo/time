@@ -42,6 +42,7 @@ $(document).ready(function(){
  	    	}else{
  	    		$("#ticketExists").text("");
  	    		$("#createTicketSubmit").prop('disabled', false);
+ 	    		
  	    	}
      });
 	});  
